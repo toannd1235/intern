@@ -1,10 +1,8 @@
-<p>
-  upload works!
-</p>
+
 <div id="app" class="container">
 
   <div class="page-header">
-    <h1> Product Management ffff</h1>
+    <h1> Product Management </h1>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -15,12 +13,12 @@
       <form id="form" class="form-inline" >
         <div class="form-group">
           <label for="name"> Name</label>
-          <input type="text" id="name" class="form-control" v-model="newProduct.name">
+          <input type="text" id="name" class="form-control" >
         </div>
         <br>
         <div class="form-group">
-          <label for="description"> Description </label>
-          <textarea id="description" class="form-control" rows="3" cols="46"/>
+          <label > Description </label>
+          <textarea id="description" class="form-control" rows="3" cols="46" ></textarea>
         </div>
         <br>
         <div class="form-group">
@@ -45,7 +43,6 @@
         <input type="submit" class="btn btn-primary"  value="Add Product">
       </form>
       <br>
-
       <ul class="alert alert-danger">
         <li ></li>
       </ul>
@@ -54,4 +51,41 @@
 </div>
 
 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Product List</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price($)</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Image</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr >
+        <td style="width:20%">{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td style="width:50%">{{product.description}}</td>
+        <td> {{product.category}}</td>
+        <td style ="width:30%"><img src="" style="width:80%"/></td>
+        <td >
+          <button class="btn btn-danger"><span class="glyphicon glyphicon-trash mb-2" aria-hidden="true" ></span></button>
+          <button :class="'btn btn-success edit invisible '+index" :id="'save '+index" >Save</button>
 
+        </td>
+
+        <td id="event">
+          <button :class="'btn btn-info edit ' + index" ref="'btn btn-info edit ' + index" ><span class="glyphicon glyphicon-edit mb-2" aria-hidden="true" ></span></button>
+          <button :class="'btn btn-success edit invisible '+index" :id="'cancel '+index" >Cancel</button>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
