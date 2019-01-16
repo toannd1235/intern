@@ -27,10 +27,11 @@
             </select>
           </div>
 
-          <!--<div class="form-group">-->
+          <div class="form-group">
             <!--<label for="bookImage">Choose product's image </label>-->
-            <!--<input type="file" class="form-control-file" id ="bookImage" v-on:change="changedImage"  >-->
-          <!--</div>-->
+            <input type="file" class="form-control-file" id ="bookImage" v-on:change="changedImage"  >
+            <!--<input type="file" @change="onFileChanged">-->
+          </div>
           <input type="submit" class="btn btn-primary" value="Add Book">
         </form>
         <br>
@@ -68,7 +69,7 @@
             <td>{{book.description}}</td>
             <td>{{book.price}}</td>
             <td>{{book.category}}</td>
-            <td style ="width:30%"><img  style="width:80%"/></td>
+            <td><img :src="src" :alt="book.image"/></td>
             <td><span class="glyphicon glyphicon-trash" aria-hidden="true" v-on:click="removeBook(book)"></span></td>
           </tr>
           </tbody>
@@ -140,6 +141,9 @@
       removeBook(book) {
         booksRef.child(book['.key']).remove()
         toastr.success('Book removed successfully')
+      },
+      changedImage (event) {
+        this.newBook.image = event.target.files[0]
       },
 
     },
