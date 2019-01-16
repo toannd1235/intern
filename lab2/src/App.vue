@@ -7,25 +7,38 @@
       <div class="panel-body">
         <form id="form" class="form-inline" v-on:submit.prevent="addBook">
           <div class="form-group">
-            <label for="bookTitle">Title:</label>
-            <input type="text" id="bookTitle" class="form-control" v-model="newBook.title">
+            <label for="bookName">Name:</label>
+            <input type="text" id="bookName" class="form-control" v-model="newBook.name">
           </div>
           <div class="form-group">
-            <label for="bookAuthor">Descripion:</label>
-            <input type="text" id="bookAuthor" class="form-control" v-model="newBook.author">
+            <label for="bookDescription">Description:</label>
+            <input type="text" id="bookDescription" class="form-control" v-model="newBook.description">
           </div>
           <div class="form-group">
-            <label for="bookUrl">Url:</label>
-            <input type="text" id="bookUrl" class="form-control" v-model="newBook.url">
+            <label for="bookPrice">Price:</label>
+            <input type="text" id="bookPrice" class="form-control" v-model="newBook.price">
           </div>
+          <div class="form-group">
+            <label for="bookCategory">Category:</label>
+              <select class="form-control" id ="bookCategory" v-model="newBook.category">
+              <option>Technology</option>
+              <option>University</option>
+              <option>Love</option>
+            </select>
+          </div>
+
+          <!--<div class="form-group">-->
+            <!--<label for="bookImage">Choose product's image </label>-->
+            <!--<input type="file" class="form-control-file" id ="bookImage" v-on:change="changedImage"  >-->
+          <!--</div>-->
           <input type="submit" class="btn btn-primary" value="Add Book">
         </form>
         <br>
-        <h1 v-if="errors.length > 0">
+        <h6 v-if="errors.length > 0">
         <ul class="alert alert-danger">
           <li v-for="(error, index) in errors" v-bind:key="index">{{ error }}</li>
         </ul>
-        </h1>>
+        </h6>
       </div>
     </div>
     <div class="panel panel-default">
@@ -36,9 +49,12 @@
         <table class="table table-striped">
           <thead>
           <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th> </th>
           </tr>
           </thead>
           <tbody
@@ -47,12 +63,12 @@
             leave-active-class="animated bounceOutRight"
             is="transition-group"
           >
-          <tr
-            v-for="book in books"
-            v-bind:key="book['.key']"
-          >
-            <td><a v-bind:href="book.url">{{book.title}}</a></td>
-            <td>{{book.author}}</td>
+          <tr v-for="book in books" v-bind:key="book['.key']">
+            <td><a >{{book.name}}</a></td>
+            <td>{{book.description}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.category}}</td>
+            <td style ="width:30%"><img  style="width:80%"/></td>
             <td><span class="glyphicon glyphicon-trash" aria-hidden="true" v-on:click="removeBook(book)"></span></td>
           </tr>
           </tbody>
@@ -84,9 +100,13 @@
     data () {
       return {
         newBook: {
-          title: '',
-          author: '',
-          url: 'http://'
+          name: '',
+          description: '',
+          price:'',
+          category:'',
+          image: null,
+          url: '',
+          id:''
         },
         errors: []
       }
@@ -98,34 +118,31 @@
 
       addBook(e) {
         this.errors = [''];
-        if(!this.newBook.title) this.errors.push("Name required.");
-        if(!this.newBook.author) this.errors.push("Author required.");
+        if(!this.newBook.name) this.errors.push("Name required.");
+        if(!this.newBook.description) this.errors.push("Description required.");
+        if(!this.newBook.price) this.errors.push('Price required.');
+         if(!this.newBook.category) this.errors.push('Category required.');
         e.preventDefault();
         if(this.errors == '') {
           booksRef.push(this.newBook);
-          this.newBook.title = '';
-          this.newBook.author = '';
-          this.newBook.url = 'http://';
+
+
+          this.newBook.name = '';
+          this.newBook.description = '';
+          this.newBook.price ='';
+          this.newBook.category='';
+          this.newBook.id ='';
+          this.newBook.image = null
+
           toastr.success('Book added successfully')
         }
       },
       removeBook(book) {
         booksRef.child(book['.key']).remove()
         toastr.success('Book removed successfully')
-      }
+      },
+
     },
   }
 </script>
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin-top: 20px;
-  }
-
-  ul li {
-    list-style-type: none;
-  }
-</style>
+<link ref="style " href="style.css">
