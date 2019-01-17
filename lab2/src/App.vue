@@ -7,19 +7,19 @@
       <div class="panel-body">
         <form id="form" class="form-inline" v-on:submit.prevent="addBook">
           <div class="form-group">
-            <label for="bookName">Name:</label>
+            <label for="bookName">Name:</label><br>
             <input type="text" id="bookName" class="form-control" v-model="newBook.name">
           </div>
           <div class="form-group">
-            <label for="bookDescription">Description:</label>
+            <label for="bookDescription">Description:</label><br>
             <input type="text" id="bookDescription" class="form-control" v-model="newBook.description">
           </div>
           <div class="form-group">
-            <label for="bookPrice">Price:</label>
+            <label for="bookPrice">Price:</label><br>
             <input type="text" id="bookPrice" class="form-control" v-model="newBook.price">
           </div>
           <div class="form-group">
-            <label for="bookCategory">Category:</label>
+            <label for="bookCategory">Category:</label><br>
               <select class="form-control" id ="bookCategory" v-model="newBook.category">
               <option>Technology</option>
               <option>University</option>
@@ -28,7 +28,7 @@
           </div>
 
           <div class="form-group">
-            <!--<label for="bookImage">Choose product's image </label>-->
+            <label for="bookImage">Choose image </label>
             <input type="file" class="form-control-file" id ="bookImage" v-on:change="changedImage"  >
             <!--<input type="file" @change="onFileChanged">-->
           </div>
