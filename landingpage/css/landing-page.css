@@ -69,24 +69,57 @@ header.masthead h1, h2, h3,h4,h5,h6 {
 
 }
 #showcase{
-    background-color: cornflowerblue;
+    background-color: midnightblue;
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
 .testimonials{
-    padding-top: 5rem;
-    padding-bottom: 12rem;
     background-color:midnightblue;
 }
-#CERTIFICATION{
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color:midnightblue;
+.content{
+    background-color: cornflowerblue;
+}
+.card-text{
+    border :13px;
 
+}
+.services{
+     padding-left: 10rem;
+    padding-right: 10rem;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    background-color:cornflowerblue;
+
+}
+.material-icons{
+    font-size: 86px;
+    color: yellow;
 }
 
 
 footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+    position: relative;
+    background: url("../img/bg-masthead.jpg") no-repeat center center;
+    background-size: cover;
+    linear-gradient(
+    rgba(255, 0, 0, 0.45),
+    rgba(255, 0, 0, 0.45)
+),}
+footer.footer:before{
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    background: rgba(6,21,64,0.82);
+}
+footer.footer h1, h2, h3,h4,h5,h6 {
+
+    font-family: 'Roboto Condensed Light';
+}
+@media (min-width: 224px) {
+    footer.footer {
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+    }
+
 }
