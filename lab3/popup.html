@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <!-- <script src="./public/js/bootstrap.min.js"></script> -->
+    <script src="./public/js/jquery-3.3.1.min.js"></script>
+    <script src="public/js/firebase-app.js"></script>
+    <script src="public/js/firebase-firestore.js"></script>
+
+    <script src="public/js/firebase-database.js"></script>
+
+    <script src="popup.js"></script>
+
+</head>
+<body>
+<div id="divContainer" class="d-flex  flex-column">
+    <div class="container-fluid" id="divButton">
+        <button class="btn btn-success" id="add">Add List</button>
+    </div>
+</div>
+<!--<button class="btn btn-outline-success" id="add">Add to List</button>-->
+    <div class="card card-signin my-5">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>STT</th>
+                    <th>ID Facebook</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody id="dataTable">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

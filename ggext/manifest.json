@@ -1,0 +1,26 @@
+{
+  "name": "Facebook Accounts Switcher",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Easily and quickly switching between facebook accounts",
+
+  "content_scripts": [{
+    "js": ["js/contentScript.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "browser_action": {
+
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+   "permissions": [
+     "activeTab", "cookies", "<all_urls>", "tabs",
+
+    "history",
+    "browsingData"
+
+    ]
+
+}

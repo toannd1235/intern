@@ -1,0 +1,20 @@
+#divContainer {
+    width: 500px;
+    position: relative;
+}
+#divButton{
+	display: flex;
+}
+
+button.btn.btn-outline-warning {
+    float: right;
+    margin:10px;
+    margin-left: 40%;
+    font-weight: bold;
+}
+button.btn.btn-outline-success {
+    margin:10px;
+    font-weight: bold;
+}
+thead {
+}

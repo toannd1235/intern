@@ -1,0 +1,30 @@
+#POPUP {
+	/*height: 400px; */
+	width: 500px;
+	/*background-image: url(./../img/background1.jpg);*/
+	background-image: url(./../img/background.svg);
+}
+
+#BUTTON-CONTAINER {
+	height: 42px;
+}
+
+table th{
+	/*color: #194367;*/
+	color: #ffffff;
+}
+
+table td {
+	/*color: #495057;*/
+	color: #3b3b3b;
+}
+
+table {
+	/*background-color: #f6f6f6 !important;*/
+	background: transparent !important;
+}
+
+table thead {
+	/*background-color: #27ae60 !important;*/
+	background-color: #495057 !important;
+}
